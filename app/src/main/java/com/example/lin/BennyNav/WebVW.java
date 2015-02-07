@@ -1,15 +1,17 @@
 package com.example.lin.BennyNav;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.webkit.WebView;
 
 
-public class WebVW extends ActionBarActivity {
-
+public class WebVW extends ActionBarActivity  {
+GestureDetector gestureDetector;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +19,56 @@ public class WebVW extends ActionBarActivity {
         WebView WV1=(WebView) findViewById(R.id.webV1);
         WV1.getSettings().setJavaScriptEnabled(true);
         WV1.loadUrl("http://www.baidu.com");
+//        gestureDetector = new GestureDetector(new GestureDetector.OnGestureListener() {
+//
+//            @Override
+//            public boolean onSingleTapUp(MotionEvent e) {
+//                // TODO Auto-generated method stub
+//                Toast.makeText(getApplicationContext(), "1111",
+//                        Toast.LENGTH_SHORT).show();
+//                return false;
+//            }
+//
+//            @Override
+//            public void onShowPress(MotionEvent e) {
+//                // TODO Auto-generated method stub
+//
+//            }
+//
+//            @Override
+//            public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
+//                                    float distanceY) {
+//                // TODO Auto-generated method stub
+//                return false;
+//            }
+//
+//            @Override
+//            public void onLongPress(MotionEvent e) {
+//                // TODO Auto-generated method stub
+//
+//            }
+//
+//            @Override
+//            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+//                                   float velocityY) {
+//                if (velocityX > 0) {
+//                    //                    viewFlipper.showNext();
+//                    Toast.makeText(getApplicationContext(), "1111",
+//                            Toast.LENGTH_SHORT).show();
+//                } else {
+//                    //                    viewFlipper.showPrevious();
+//                    Toast.makeText(getApplicationContext(), "222",
+//                            Toast.LENGTH_SHORT).show();
+//                }
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onDown(MotionEvent e) {
+//                // TODO Auto-generated method stub
+//                return false;
+//            }
+//        });
     }
 
 
@@ -46,5 +98,10 @@ public class WebVW extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        gestureDetector.onTouchEvent(event);
+        return super.onTouchEvent(event);
     }
 }
