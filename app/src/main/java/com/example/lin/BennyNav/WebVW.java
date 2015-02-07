@@ -69,6 +69,8 @@ GestureDetector gestureDetector;
 //                return false;
 //            }
 //        });
+//        Log.d("111", "onDoubleTap: " + event.toString());
+
     }
 
 
